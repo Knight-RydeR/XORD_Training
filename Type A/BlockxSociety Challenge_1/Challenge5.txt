@@ -1,0 +1,25 @@
+pragma solidity 0.8.1;
+//SPDX-License-Identifier:Unlicenses;
+
+contract Challenge_5 {
+    
+    uint x = block.timestamp;
+    
+    receive() external payable {
+    
+    }
+    
+    fallback() external payable {
+        
+    }
+    
+    function withdraw() public returns (uint) {
+        if (block.timestamp > x) {
+            uint extend = 1 days;
+            x += extend;
+            return address(this).balance;  
+        } else {
+            return 0;
+        }
+    }
+}

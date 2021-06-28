@@ -1,0 +1,15 @@
+pragma solidity 0.8.1;
+//SPDX-License-Identifier:Unlicenses;
+
+contract Challenge_6 {
+    function createHash(address _one, address _two) public pure returns (bytes32) {
+        bytes32 one = keccak256(abi.encodePacked(_one));
+        bytes32 two = keccak256(abi.encodePacked(_two));
+        if (one > two)
+        {
+            return keccak256(abi.encodePacked(_one, _two));
+        } else {
+            return keccak256(abi.encodePacked(_two, _one));
+        }
+    }
+}

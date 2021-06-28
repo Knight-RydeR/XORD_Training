@@ -1,0 +1,15 @@
+pragma solidity 0.8.4;
+//"SPDX-License-Identifier: UNLICENSED";
+import "./Ownable.sol";
+contract Challenge_3{
+    struct list {
+        mapping (address => string[]) holdList;
+    }
+    list checklist;
+    function addTask (string memory task) public {
+        checklist.holdList[msg.sender].push(task);
+    }
+    function printList () public view returns (string[] memory) {
+        return checklist.holdList[msg.sender];
+    }
+}
