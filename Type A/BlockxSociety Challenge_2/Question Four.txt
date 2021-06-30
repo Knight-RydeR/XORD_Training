@@ -1,0 +1,9 @@
+BLOCKXSOCIETY CHALLENGE 2 TASK 4 REFERENCE MATERIAL
+
+https://medium.com/@chiqing/ethereum-standard-erc165-explained-63b54ca0d273
+
+https://docs.openzeppelin.com/contracts/4.x/api/token/erc1155#IERC1155-balanceOfBatch-address---uint256---
+
+https://eips.ethereum.org/EIPS/eip-1155
+
+https://docs.openzeppelin.com/contracts/4.x/erc1155#:~:text=ERC1155%20-%20OpenZeppelin%20Docs%20GitHub%20Forum%20Blog%20Website,to%20create%20a%20fungibility-agnostic%20and%20gas-efficient%20token%20contract.
