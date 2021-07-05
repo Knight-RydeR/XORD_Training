@@ -190,8 +190,29 @@ contract caller is ERC1155 {
     
     function safeBatchTransferFrom(address _from, address _to, uint256[] calldata _ids, uint256[] calldata _values, bytes calldata _data) override external {
         // for (uint i = 0; i < _ids.length; i++) {
-        //     for (uint j = 0; j < wallet.typesHeld[_from])
+        //     for (uint j = 0; j < wallet.typesHeld[_from]) {
+        //         if (wallet.typesHeld[_from][j].id == _id[i]) {
+        //             require(wallet.typesHeld[_from][j].quantity >= _value);
+        //             wallet.typesHeld[_from][j].quantity -= _value;
+        //         }
+        //     }
         // }
+        uint arrSize = 0;
+        for (uint i = 0; arrSize < _ids.length; i++) {
+            if (wallet.typesHeld[_from][i].id == _ids[arrSize]) {
+                    require(wallet.typesHeld[_from][i].quantity >= _values[arrSize]);
+                    wallet.typesHeld[_from][i].quantity -= _values[arrSize];
+                    for (uint j = 0; j <= wallet.typesHeld[_to].length; j++) {
+                        if (j == wallet.typesHeld[_to].length) {
+                            wallet.typesHeld[_to].push(tokenInfo(false, _ids[arrSize], _values[arrSize]));
+                            arrSize++;
+                        } else if (wallet.typesHeld[_to][j].id == _ids[arrSize]) {
+                            wallet.typesHeld[_to][j].quantity += _values[arrSize];
+                            arrSize++;
+                        }
+                    }
+                }
+        }
     }
     
     function balanceOf(address _owner, uint256 _id) override external view returns (uint256) {
@@ -244,4 +265,8 @@ contract caller is ERC1155 {
         return false;
     }
 
+}
+
+contract Application1155 is Caller {
+    
 }
