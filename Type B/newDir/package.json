@@ -1,0 +1,21 @@
+{
+  "name": "newdir",
+  "version": "1.0.0",
+  "description": "Installation for hardhat",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "RydeR",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "npm:hardhat-deploy-ethers@^0.3.0-beta.10",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "ethers": "^5.4.1",
+    "hardhat": "^2.4.1",
+    "hardhat-deploy": "^0.8.9"
+  },
+  "dependencies": {
+    "web3": "^1.4.0"
+  }
+}

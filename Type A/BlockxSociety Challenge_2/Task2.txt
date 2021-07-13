@@ -129,7 +129,8 @@ interface ERC165 {
         handler = msg.sender;
         //checker.index = 0;
     }
-    
+    //REMOVE LOOP - MAKE DOUBLE MAPPING 
+    //USE REQUIRE INSTEAD OF IF - ELSE
     function approve(address _approved, uint256 _tokenId) override external payable {
         if (tokenToHolder[_tokenId] == _approved) {
             for (uint i = 0; i < checker.length; i++) {
@@ -140,7 +141,7 @@ interface ERC165 {
             }
         }
     }
-    
+    //INSTEAD OF REQUIRE INSIDE THE FUNCTION, MAKE A MODIFIER AND CALL THAT
     function makeToken(address _receiver, uint _tokenId) public {
         require (msg.sender == handler);
         checker[index].token = _tokenId;
